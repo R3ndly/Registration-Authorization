@@ -89,13 +89,13 @@ class Authorization extends DatabaseConnection {
         }
     }
     private function check_captcha($token) {
-        define('SMARTCAPTCHA_SERVER_KEY', 'ysc2_IfFdL9iEn8Jag4xHJbAFoXKZpcv20Pp7LL0oM4cjc133d085'); // Замените на ваш ключ сервера
+        //define('SMARTCAPTCHA_SERVER_KEY', 'ключСервера'); // Замените на ваш ключ сервера, а то GitHub не пропускает
 
         $ch = curl_init();
         $args = http_build_query([
             "secret" => SMARTCAPTCHA_SERVER_KEY,
             "token" => $token,
-            "ip" => $_SERVER['REMOTE_ADDR'], // Нужно передать IP-адрес пользователя.
+            "ip" => $_SERVER['REMOTE_ADDR'],
         ]);
         curl_setopt($ch, CURLOPT_URL, "https://smartcaptcha.yandexcloud.net/validate?$args");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
