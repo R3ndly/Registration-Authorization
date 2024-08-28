@@ -89,7 +89,7 @@ class Authorization extends DatabaseConnection {
         }
     }
     private function check_captcha($token) {
-        //define('SMARTCAPTCHA_SERVER_KEY', 'ключСервера'); // Замените на ваш ключ сервера, а то GitHub не пропускает
+       // Замените на ваш ключ сервера, а то GitHub не пропускает
 
         $ch = curl_init();
         $args = http_build_query([
